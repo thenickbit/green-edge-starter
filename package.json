@@ -5,7 +5,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"./src/**/*.?(ts|tsx|js|jsx|json|md|mdx})\""
+    "format": "prettier --write \"./src/**/*.?(ts|tsx|js|jsx|json|md|mdx})\"",
+    "ui:add": "pnpm dlx shadcn-ui@latest add",
+    "ui:diff": "pnpm dlx shadcn-ui@latest diff"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
