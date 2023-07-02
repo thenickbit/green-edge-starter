@@ -1,10 +1,10 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
-import Link from 'next/link'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import Link from 'next/link';
 
-import LogoutButton from '../components/LogoutButton'
-import NextJsLogo from '../components/NextJsLogo'
-import SupabaseLogo from '../components/SupabaseLogo'
+import LogoutButton from '../components/LogoutButton';
+import NextJsLogo from '../components/NextJsLogo';
+import SupabaseLogo from '../components/SupabaseLogo';
 
 const resources = [
   {
@@ -28,7 +28,7 @@ const resources = [
     url: 'https://supabase.com/docs/guides/auth/auth-helpers/nextjs',
     icon: 'M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528',
   },
-]
+];
 
 const examples = [
   { type: 'Client Components', src: 'app/_examples/client-component/page.tsx' },
@@ -37,19 +37,19 @@ const examples = [
   { type: 'Route Handlers', src: 'app/_examples/route-handler.ts' },
   { type: 'Middleware', src: 'app/middleware.ts' },
   { type: 'Protected Routes', src: 'app/_examples/protected/page.tsx' },
-]
+];
 
 export default async function Index() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-        <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm text-foreground">
+    <div className="flex w-full flex-col items-center">
+      <nav className="flex h-16 w-full justify-center border-b border-b-foreground/10">
+        <div className="flex w-full max-w-4xl items-center justify-between p-3 text-sm text-foreground">
           <div />
           <div>
             {user ? (
@@ -60,7 +60,7 @@ export default async function Index() {
             ) : (
               <Link
                 href="/login"
-                className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+                className="bg-btn-background hover:bg-btn-background-hover rounded-md px-4 py-2 no-underline"
               >
                 Login
               </Link>
@@ -69,46 +69,42 @@ export default async function Index() {
         </div>
       </nav>
 
-      <div className="animate-in flex flex-col gap-14 opacity-0 max-w-4xl px-3 py-16 lg:py-24 text-foreground">
-        <div className="flex flex-col items-center mb-4 lg:mb-12">
-          <div className="flex gap-8 justify-center items-center">
+      <div className="flex max-w-4xl flex-col gap-14 px-3 py-16 text-foreground opacity-0 animate-in lg:py-24">
+        <div className="mb-4 flex flex-col items-center lg:mb-12">
+          <div className="flex items-center justify-center gap-8">
             <Link href="https://supabase.com/" target="_blank">
               <SupabaseLogo />
             </Link>
-            <span className="border-l rotate-45 h-6" />
+            <span className="h-6 rotate-45 border-l" />
             <NextJsLogo />
           </div>
           <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
-          <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center my-12">
-            The fastest way to start building apps with{' '}
-            <strong>Supabase</strong> and <strong>Next.js</strong>
+          <p className="mx-auto my-12 max-w-xl text-center text-3xl !leading-tight lg:text-4xl">
+            The fastest way to start building apps with <strong>Supabase</strong> and{' '}
+            <strong>Next.js</strong>
           </p>
-          <div className="bg-foreground py-3 px-6 rounded-lg font-mono text-sm text-background">
+          <div className="rounded-lg bg-foreground px-6 py-3 font-mono text-sm text-background">
             Get started by editing <strong>app/page.tsx</strong>
           </div>
         </div>
 
-        <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+        <div className="w-full bg-gradient-to-r from-transparent via-foreground/10 to-transparent p-[1px]" />
 
         <div className="flex flex-col gap-8 text-foreground">
-          <h2 className="text-lg font-bold text-center">
-            Everything you need to get started
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <h2 className="text-center text-lg font-bold">Everything you need to get started</h2>
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             {resources.map(({ title, subtitle, url, icon }) => (
               <a
                 key={title}
-                className="relative flex flex-col group rounded-lg border p-6 hover:border-foreground"
+                className="group relative flex flex-col rounded-lg border p-6 hover:border-foreground"
                 href={url}
                 target="_blank"
                 rel="noreferrer"
               >
-                <h3 className="font-bold mb-2  min-h-[40px] lg:min-h-[60px]">
-                  {title}
-                </h3>
-                <div className="flex flex-col grow gap-4 justify-between">
+                <h3 className="mb-2 min-h-[40px]  font-bold lg:min-h-[60px]">{title}</h3>
+                <div className="flex grow flex-col justify-between gap-4">
                   <p className="text-sm opacity-70">{subtitle}</p>
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-center justify-between">
                     <svg
                       width="24"
                       height="24"
@@ -136,7 +132,7 @@ export default async function Index() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="ml-2 h-4 w-4 opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 transition-all"
+                      className="ml-2 h-4 w-4 -translate-x-2 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
                     >
                       <polyline points="9 18 15 12 9 6" />
                     </svg>
@@ -148,24 +144,19 @@ export default async function Index() {
         </div>
 
         <div className="flex flex-col gap-8 text-foreground">
-          <div className="grid gap-2 justify-center mx-auto text-center">
-            <h2 className="text-lg font-bold text-center">Examples</h2>
+          <div className="mx-auto grid justify-center gap-2 text-center">
+            <h2 className="text-center text-lg font-bold">Examples</h2>
             <p className="text-sm">
-              Look in the <code>_examples</code> folder to see how to create a
-              Supabase client in all the different contexts.
+              Look in the <code>_examples</code> folder to see how to create a Supabase client in
+              all the different contexts.
             </p>
           </div>
-          <div className="w-full justify-center border rounded-lg overflow-hidden">
+          <div className="w-full justify-center overflow-hidden rounded-lg border">
             {examples.map(({ type, src }) => (
-              <div
-                key={type}
-                className="w-full grid grid-cols-3 border-b last:border-b-0 text-sm"
-              >
-                <div className="flex items-center font-bold p-4 min-h-12 w-full">
-                  {type}
-                </div>
-                <div className="col-span-2 border-l p-4 flex items-center">
-                  <code className="text-sm whitespace-pre-wrap">{src}</code>
+              <div key={type} className="grid w-full grid-cols-3 border-b text-sm last:border-b-0">
+                <div className="min-h-12 flex w-full items-center p-4 font-bold">{type}</div>
+                <div className="col-span-2 flex items-center border-l p-4">
+                  <code className="whitespace-pre-wrap text-sm">{src}</code>
                 </div>
               </div>
             ))}
@@ -175,16 +166,12 @@ export default async function Index() {
         <div className="flex justify-center text-center text-xs">
           <p>
             Powered by{' '}
-            <Link
-              href="https://supabase.com/"
-              target="_blank"
-              className="font-bold"
-            >
+            <Link href="https://supabase.com/" target="_blank" className="font-bold">
               Supabase
             </Link>
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
