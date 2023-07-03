@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: 'next-supabase-shadcn',
-  url: 'https://github.com/nchartiot/next-supabase-shadcn',
+  name: 'Green Edge - Starter',
+  url: 'https://github.com/nchartiot/green-edge-starter',
   ogImage: '',
-  description: 'A starter project for NextJS 13 apps using supabase and shadcn-ui',
+  description: 'A starter project for NextJS 13 apps using supabase, lemonsqueezy and shadcn-ui',
   links: {
-    github: 'https://github.com/nchartiot/next-supabase-shadcn',
+    github: 'https://github.com/nchartiot/green-edge-starter',
   },
 };
 
