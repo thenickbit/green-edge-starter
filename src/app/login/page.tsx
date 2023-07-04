@@ -90,7 +90,7 @@ export default function Login() {
             <>
               <button className="mb-6 rounded bg-green-700 px-4 py-2 text-white">Sign In</button>
               <p className="text-center text-sm">
-                Don't have an account?
+                Don&apos;t have an account?
                 <button className="ml-1 underline" onClick={() => setView('sign-up')}>
                   Sign Up Now
                 </button>
